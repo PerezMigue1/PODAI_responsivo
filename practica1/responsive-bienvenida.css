@@ -1,0 +1,127 @@
+.wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 808px) {
+    table {
+        width: 100% !important;
+        height: auto !important;
+    }
+    
+    td {
+        width: 100% !important;
+        height: auto !important;
+        display: block;
+    }
+    
+    /* banner */
+    img[src*="banner.jpg"] {
+        width: 100% !important;
+        height: auto !important;
+    }
+    
+    /*menú */
+    .topnav {
+        width: 100%;
+        padding: 0;
+    }
+    
+    .topnav a, .dropdown .dropbtn {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+    
+    .dropdown-content {
+        position: relative;
+        width: 100%;
+    }
+    
+    /*principal */
+    .tab_borde {
+        width: 95% !important;
+        margin: 10px auto;
+    }
+    
+    #lblNombre, #lblText, #lblAux, #lblPeriodo {
+        width: 100% !important;
+        height: auto !important;
+        padding: 5px 0;
+    }
+    
+    /*pie de página */
+    #footer {
+        width: 100%;
+        padding: 15px;
+        text-align: center;
+    }
+    
+    /* diálogos y ventanas */
+    .ui-dialog {
+        width: 90% !important;
+        max-width: 600px;
+        margin: 10px auto;
+        left: 0 !important;
+        right: 0 !important;
+    }
+    
+    /* tablas  */
+    table table {
+        margin: 0 auto;
+    }
+    
+    /*textos y espaciados */
+    td[style*="text-align"] {
+        text-align: center !important;
+        padding: 10px 5px;
+    }
+    
+    /* Mejoras de usabilidad para móviles */
+    a, button {
+        min-height: 44px;
+        padding: 12px;
+        display: inline-flex;
+        align-items: center;
+    }
+    
+    /* menú responsivo */
+    .topnav.responsive {
+        position: relative;
+    }
+    
+    .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    
+    .topnav.responsive a,
+    .topnav.responsive .dropdown {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+    
+    .topnav.responsive .dropdown-content {
+        position: relative;
+    }
+}
+
+/* tablets */
+@media screen and (min-width: 809px) and (max-width: 1024px) {
+    .wrapper {
+        width: 95%;
+    }
+    
+    table {
+        max-width: 95%;
+        margin: 0 auto;
+    }
+    
+    .topnav a, .dropdown .dropbtn {
+        padding: 14px 12px;
+    }
+}
+

@@ -1,0 +1,607 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0047)http://podai.uthh.edu.mx/Bienvenida.aspx?mnu=Al -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" language="javascript">
+        function handleTimeout() {
+            alert('Tiempo de espera superado. \n Su conexión a internet es demasiado lento.');
+        }
+        function doOnLoad() {
+            AjaxPro.timeoutPeriod = 120*1000;
+            AjaxPro.onTimeout = handleTimeout;
+        }
+    </script>
+<link href="responsive-bienvenida.css" rel="stylesheet" type="text/css">
+<title>
+	Bienvenida
+</title><link href="http://podai.uthh.edu.mx/Imagenes/icon.ico" rel="icon" type="image/x-icon">
+     
+    <!--<script type="text/javascript" src="libre/lib/jquery.min.js"></script>  -->
+    <link href="./Bienvenida_files/jquery-ui.css" type="text/css" rel="stylesheet"><link href="./Bienvenida_files/style.css" rel="stylesheet" type="text/css"><link href="./Bienvenida_files/style(1).css" rel="stylesheet" type="text/css"><link href="./Bienvenida_files/styleEncuesta.css" rel="stylesheet" type="text/css">     
+    <script type="text/javascript" src="./Bienvenida_files/jquery-1.9.1.js.descarga" charset="UTF-8"></script>
+    <script type="text/javascript" src="./Bienvenida_files/jquery-ui.min.js.descarga"></script>
+    <script type="text/javascript" src="./Bienvenida_files/encuesta.js.descarga" charset="UTF-8"></script>
+    <script>
+        $(document).ready(function() {
+            $("#encuesta").dialog({
+                width: "840",
+                closeOnEscape: false,
+                height: "610",
+                open: function(event, ui) {
+                    $(this).closest('.ui-dialog').find('.ui-dialog-titlebar-close').hide();
+                    /* $(".ui-widget-overlay").css({
+                    opacity: 0.8,
+                    filter: "Alpha(Opacity=80)",
+                    backgroundColor: "#000"
+                    });*/
+                },
+                closeText: "hide",
+                close: "disabled",
+                title: "Encuesta",
+                show: "scale",
+                hide: "shake", //<!--animación al cerrar la ventana -->
+                resizable: "false", //<!--fija o redimensionable si ponemos este valor a "true" -->
+                position: "center", //<!--posicion de la ventana en la pantalla (left, top, right...) -->
+                modal: "true",
+                autoOpen: false,
+                buttons: [
+                {
+                    text: "Guardar",
+                    //icon: "ui-icon-save",
+                    click: function() {
+                        enviarEncuesta()
+                    }
+}]
+            });
+
+
+            //ventana Alert
+            $("#alerta").dialog({
+                width: "300",
+                closeOnEscape: false,
+                height: "150",
+                open: function (event, ui) {
+                    $(this).closest('.ui-dialog').find('.ui-dialog-titlebar-close').hide();
+                    /* $(".ui-widget-overlay").css({
+                    opacity: 0.8,
+                    filter: "Alpha(Opacity=80)",
+                    backgroundColor: "#000"
+                    });*/
+                },
+                closeText: "hide",
+                close: "disabled",
+                title: "PODAI",
+                show: "scale",
+                hide: "shake", //<!--animación al cerrar la ventana -->
+                resizable: "false", //<!--fija o redimensionable si ponemos este valor a "true" -->
+                position: "center", //<!--posicion de la ventana en la pantalla (left, top, right...) -->
+                modal: "true",
+                autoOpen: false,
+                //buttons: [
+                //{
+                //    text: "Guardar",
+                //    //icon: "ui-icon-save",
+                //    click: function () {
+                //        enviarEncuesta()
+                //    }
+                //}]
+            });
+
+            });
+        function flotante(tipo) {            
+            if ($("#contenedor").length) {
+                if (tipo == 1) { $('#contenedor').show();  }
+                if (tipo == 2) { $('#flotante').animate({ marginTop: "-900px" }); setTimeout(function() { $('#contenedor').hide(); }, 500) }
+            }
+            
+        } 
+        function VerificaEncuesta1() {
+        
+             $.ajax({
+                type: "POST",
+                url: "Bienvenida.aspx/VerificaEncuesta",
+                data: '',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function(response) {
+                    customers=JSON.parse(response.d); 
+                    for (i = 0; i < customers.Ens.length-1; i += 1) {
+                        console.log(i+"- "+customers.Ens[i].En);
+                        if(customers.Ens[i].En=="1")
+                            document.getElementById("check"+(i+1).toString()).src="Imagenes/check.png";
+                        
+                    }
+                    if(customers.Ens[customers.Ens.length-1].En=="4"){
+                             alert("¡Gracias por su participación!");
+                            location.href='Bienvenida.aspx?mnu=Al';
+                    }
+                    
+                    
+                },
+                failure: function(response) {
+                    alert(response.d);
+                }
+            });
+            
+            
+        }
+        
+function GuardarAse() {
+    Bienvedida.cmbAsis($('#cmbAsis').val(), AsisAjaxMethod_CallBack)
+}
+ function AsisAjaxMethod_CallBack(response){
+        if (response.error!=null) {
+              alert("Error al guardar");
+        }else{  
+            if(response.value=="Si"){alert("Su asistencia se guardó correctamente.");}else
+                { if(response.value=="No") alert("Su respuesta se guardó correctamente.");
+            } flotante(2);   
+            console.log(response.value);
+        }
+    }
+
+    </script>
+    <style type="text/css">
+        .style12
+        {
+            height: 48px;
+        }
+        .style13
+        {
+            height: 87px;
+        }
+        .style14
+        {
+            height: 31px;
+        }
+        .style15
+        {
+            height: 32px;
+        }
+        .style16
+        {
+            height: 56px;
+        }
+        
+        /* ============================================================================================================================
+== PINCHED SPEECH BUBBLE (more CSS3)
+** ============================================================================================================================ */
+
+/* ============================================================================================================================
+== PINCHED SPEECH BUBBLE (more CSS3)
+** ============================================================================================================================ */
+.pinched {
+	position:relative;
+	padding:8px;
+	margin:8px 0 -5px;
+	text-align:center;
+	color:#fff;
+	background:#3C7D4D; 
+	/* css3 */
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+	width: 280px;
+    left: 495px;
+}
+
+/* creates a rectangle of the colour wanted for the pointy bit */
+.pinched:before {
+	content:"";
+	position:absolute;
+	top:-20px;
+	left:58%;
+	width:100px;
+	height:20px;
+	margin:0 0 0 -50px;
+	background:#3C7D4D;
+}
+
+/* creates a rounded rectangle to cover part of the rectangle generated above */
+.pinched:after {
+	content:"";
+	position:absolute;
+	top:-20px;
+	left:0;
+	width:58%;
+	height:20px;
+	/*background:#4F4F4F;*/
+	background:#fff;
+	/* css3 */
+	-webkit-border-bottom-right-radius:50px;
+	-moz-border-radius-bottomright:50px;
+	border-bottom-right-radius:50px;
+}
+
+/* creates the other rounded rectangle */
+.pinched > :first-child:before {
+	content:""; 
+	position:absolute; 
+	top:-20px; 
+	right:0;
+	width:42%; 
+	height:20px; 
+	/*background:#4F4F4F;*/
+	background:#fff;
+	/* css3 */
+	-webkit-border-bottom-left-radius:50px;
+	-moz-border-radius-bottomleft:50px;
+	border-bottom-left-radius:50px;
+}
+
+#fondo55 { width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 990;opacity: 0.8;background:#000; }
+        #flotante { z-index: 999; border: 8px solid #fff;top: 5%; left: 5%; padding: 3px; position: fixed; width: 88%; background-color: #fff; border-radius: 3px; }
+        h1,h3 { 	text-align:center; }
+    </style>
+<script src="chrome-extension://mooikfkahbdckldjjndioackbalphokd/assets/prompt.js"></script></head>
+<body onload="javascript:flotante(1)">
+<div class="wrapper"> 
+<form name="form1" method="post" action="http://podai.uthh.edu.mx/Bienvenida.aspx?mnu=Al" id="form1">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTIwMjk1MzgxOA9kFgICAw9kFgwCBQ8PFgIeB1Zpc2libGVnZGQCFQ8PFgIfAGhkZAIbDw8WAh4EVGV4dAUdTUlHVUVMIEFOR0VMIFBFUkVaIERFIExBIENSVVpkZAIdDw8WAh8BBSVBTFVNTk8gREVMIDR0by4gQ1VBVFJJTUVTVFJFLCBHUlVQTyBDZGQCIQ8PFgQfAQVvVMOJQ05JQ08gU1VQRVJJT1IgVU5JVkVSU0lUQVJJTyBFTiBURUNOT0xPR8ONQVMgREUgTEEgSU5GT1JNQUNJw5NOIMOBUkVBIERFU0FSUk9MTE8gREUgU09GVFdBUkUgTVVMVElQTEFUQUZPUk1BHwBoZGQCIw8PFgIfAQUaU0VQVElFTUJSRS1ESUNJRU1CUkUgMjAyNDNkZGQf2fPgQXCL96Mfjwplo4r4bxGo+Q==">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="./Bienvenida_files/WebResource.axd" type="text/javascript"></script>
+
+
+<script type="text/javascript" src="./Bienvenida_files/prototype.ashx"></script>
+<script type="text/javascript" src="./Bienvenida_files/core.ashx"></script>
+<script type="text/javascript" src="./Bienvenida_files/converter.ashx"></script>
+<script type="text/javascript" src="./Bienvenida_files/Bienvedida,App_Web_bienvenida.aspx.cdcab7d2.xlugux30.ashx"></script>
+
+<script src="./Bienvenida_files/ScriptResource.axd" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('Error al cargar el marco de trabajo de cliente ASP.NET Ajax.');
+//]]>
+</script>
+
+<script src="./Bienvenida_files/ScriptResource(1).axd" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+var PageMethods = function() {
+PageMethods.initializeBase(this);
+this._timeout = 0;
+this._userContext = null;
+this._succeeded = null;
+this._failed = null;
+}
+PageMethods.prototype = {
+_get_path:function() {
+ var p = this.get_path();
+ if (p) return p;
+ else return PageMethods._staticInstance.get_path();},
+VerificaEncuesta:function(succeededCallback, failedCallback, userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'VerificaEncuesta',false,{},succeededCallback,failedCallback,userContext); },
+GuardarEncuesta:function(parametro1,parametro2,succeededCallback, failedCallback, userContext) {
+/// <param name="parametro1" type="String">System.String</param>
+/// <param name="parametro2" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GuardarEncuesta',false,{parametro1:parametro1,parametro2:parametro2},succeededCallback,failedCallback,userContext); }}
+PageMethods.registerClass('PageMethods',Sys.Net.WebServiceProxy);
+PageMethods._staticInstance = new PageMethods();
+PageMethods.set_path = function(value) {
+PageMethods._staticInstance.set_path(value); }
+PageMethods.get_path = function() { 
+/// <value type="String" mayBeNull="true">The service url.</value>
+return PageMethods._staticInstance.get_path();}
+PageMethods.set_timeout = function(value) {
+PageMethods._staticInstance.set_timeout(value); }
+PageMethods.get_timeout = function() { 
+/// <value type="Number">The service timeout.</value>
+return PageMethods._staticInstance.get_timeout(); }
+PageMethods.set_defaultUserContext = function(value) { 
+PageMethods._staticInstance.set_defaultUserContext(value); }
+PageMethods.get_defaultUserContext = function() { 
+/// <value mayBeNull="true">The service default user context.</value>
+return PageMethods._staticInstance.get_defaultUserContext(); }
+PageMethods.set_defaultSucceededCallback = function(value) { 
+ PageMethods._staticInstance.set_defaultSucceededCallback(value); }
+PageMethods.get_defaultSucceededCallback = function() { 
+/// <value type="Function" mayBeNull="true">The service default succeeded callback.</value>
+return PageMethods._staticInstance.get_defaultSucceededCallback(); }
+PageMethods.set_defaultFailedCallback = function(value) { 
+PageMethods._staticInstance.set_defaultFailedCallback(value); }
+PageMethods.get_defaultFailedCallback = function() { 
+/// <value type="Function" mayBeNull="true">The service default failed callback.</value>
+return PageMethods._staticInstance.get_defaultFailedCallback(); }
+PageMethods.set_path("/Bienvenida.aspx");
+PageMethods.VerificaEncuesta= function(onSuccess,onFailed,userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+PageMethods._staticInstance.VerificaEncuesta(onSuccess,onFailed,userContext); }
+PageMethods.GuardarEncuesta= function(parametro1,parametro2,onSuccess,onFailed,userContext) {
+/// <param name="parametro1" type="String">System.String</param>
+/// <param name="parametro2" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+PageMethods._staticInstance.GuardarEncuesta(parametro1,parametro2,onSuccess,onFailed,userContext); }
+//]]>
+</script>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="BC7C6691">
+</div>   
+
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('sm', document.getElementById('form1'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+//]]>
+</script>
+    
+    <table style="width:784px; height:100%" cellpadding="0" cellspacing="0" border="0" align="center">        
+        <tbody>
+            <tr align="center" style="width:805px">  
+                <td valign="top">                    
+                    
+<link rel="stylesheet" href="./Bienvenida_files/font-awesome.min.css">
+<link href="./Bienvenida_files/style(2).css" rel="stylesheet" type="text/css">  
+<script type="text/javascript">
+cadena = document.URL;
+cadena = cadena.split('/');
+nuevo='';
+for (i=0; i< cadena.length; i++) {
+    if(cadena[i]=='WebSite'){
+        nuevo='/WebSite';
+   
+    }
+}
+</script>
+<script type="text/javascript" language="javascript"><!--Script que devuelva la fecha actual-->
+	function Item()
+	{
+		this.length = Item.arguments.length 
+		for (var i = 0; i < this.length; i++)
+			this[i] = Item.arguments[i]
+	}
+
+	function Fecha() 
+	{
+		var ndia = new Item('Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado')
+		var nmes = new Item('enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre')
+		var ahora
+		var fecha = new Date()
+		var ano = fecha.getYear()
+		var mes = fecha.getMonth()
+		var dia = fecha.getDay()
+		var aux = "" + fecha
+	
+		if (ano<10){ ano2 = "200" + eval(ano) }
+			else 
+				if (ano<80) { ano2 = "20" + ano} 
+					else 
+						if (ano<=99) { ano2 = "19" + ano}
+							else 
+								if (ano<1000) {	 ano2 = eval(ano) + eval(1900)	}
+									else { ano2 = ano 	}
+		ahora = "Hoy es, "+ndia[dia] + ", " + eval(aux.substring(7, 10)) + " de " + nmes[mes] + " de " + ano2
+	return ahora
+	}	
+</script><!-- Termina Script que devuelva la fecha actual-->
+<table border="0" cellpadding="0" cellspacing="0" style="width: 808px">
+    <tbody><tr>
+        <td style="width: 100%; height: 84px;">
+        <img src="./Bienvenida_files/banner.jpg" width="808px">
+      
+          </td>
+    </tr>
+   
+     <tr> <script>document.write('<td background="'+nuevo+'/imagenes/barra.png" height="27" align="center" valign="middle" style="font-size:9px; font-family:Arial; text-align:right; width: 800px">&nbsp;  <font color="#006600">'+Fecha()+'</font></td>');</script><td background="./Bienvenida_files/barra.png" height="27" align="center" valign="middle" style="font-size:9px; font-family:Arial; text-align:right; width: 800px">&nbsp;  <font color="#006600">Hoy es, Viernes, 10 de enero de 2025</font></td>
+             
+	    <td style="width: 805px">
+	    </td>
+    </tr>
+</tbody></table>
+
+                    
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+ 
+
+
+<link rel="stylesheet" href="./Bienvenida_files/style(1).css" type="text/css">
+<script type="text/javascript" src="./Bienvenida_files/script.js.descarga"></script>   
+     
+<style>
+.topnav a {
+  color: #f2f2f2;
+}
+.dropdown-content a {
+  color: black;
+}
+.topnav a:hover, .dropdown:hover .dropbtn {
+  color: white;
+}
+
+.dropdown-content a:hover {
+  color: black;
+}
+ </style>   
+<div class="topnav" id="myTopnav">
+ <a href="javascript:void(0);" style="font-size:1.3em" class="icon" onclick="myFunction()"> ☰ Menú </a>
+ 
+  <a href="http://podai.uthh.edu.mx/?Sesion=cerr">Cerrar sesión</a>
+  <div class="dropdown">
+    <button class="dropbtn">Datos de usuario 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="http://podai.uthh.edu.mx/CambiaDatosUser.aspx">Cambiar contraseña</a>
+      <a href="http://podai.uthh.edu.mx/ModificarPreguntaSecreta.aspx">Actualiza tus datos de recuperación</a>
+      
+    </div>
+  </div> 
+  <a href="http://podai.uthh.edu.mx/Alumnos/AlumConsuCalif.aspx">Consultar mis calificaciones</a>
+  <a href="http://podai.uthh.edu.mx/Alumnos/AlumEntrevista.aspx">Entrevista inicial</a>
+  
+  <div class="dropdown">
+    <button class="dropbtn">Pagos 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+<!--<a href="#">Pagos realizar en Caja Edificio F</a>-->
+      <a href="http://podai.uthh.edu.mx/Alumnos/AlumPagos.aspx">Pago de colegiatura</a>
+      <a href="http://podai.uthh.edu.mx/Alumnos/ReferenciaPagos.aspx">Titulación/Examen Egreso</a>
+      <a href="http://podai.uthh.edu.mx/Alumnos/ReferenciaPagoConstancia2024.aspx">Constancia de estudio</a>
+    </div>
+  </div> 
+  
+   <a href="http://podai.uthh.edu.mx/Alumnos/AlumVerAgenda.aspx">Agenda</a>
+ 
+  
+ 
+</div>
+
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </td>         
+                </tr>  <!--Termina Parte del Encabezado-->                   
+             <tr>  <!--Inicia Parte del Datos Personales-->                                
+				<td valign="middle" style="width: 807px; "><br>
+                    
+                    <br>
+				 <table align="center" class="tab_borde" cellspacing="0" style="height:80%; width:80%">
+                            <tbody><tr>
+                                <td style="width: 477px; height: 36px; text-align: center" valign="top">
+                                    
+                                   <table border="0" style="height:100%; width:100%" align="center">                            
+                        <tbody><tr>
+                            <td style="border-style: none; border-color: inherit; border-width: 2; text-align:center" valign="middle" class="style14">
+                                
+                                <div style="text-align: center">
+                                    <span style="font-family: Arial"><span style="font-size: 24pt; color: #003333;">
+                                        <span id="Label1" style="font-size:12pt;font-weight:bold;">Bienvenido</span></span></span></div>
+                               
+                            </td>
+                        </tr>
+                        <tr style="font-size: 12pt">
+                            <td style="border-style: none; border-color: inherit; border-width: 2; text-align:left" valign="middle" class="style13">
+                                <span style="font-size: 12pt; font-family: Modern; color: #003333;"><strong><span style="color: #006633"><span style="font-family: Roman">
+                                        <br>
+                                        </span></span>
+                                    <span id="lblNombre" style="display:inline-block;color:#000066;font-family:Arial;font-size:10pt;font-weight:normal;height:32px;width:721px;">MIGUEL ANGEL PEREZ DE LA CRUZ</span>
+                                    </strong></span></td>
+                        </tr>
+                         <tr style="font-size: 12pt">
+                            <td style="border-style: none; border-color: inherit; border-width: 2; text-align:left" valign="middle" class="style15">
+                                <span style="color: #006633; font-family: Roman"><strong>
+                                <span id="lblText" style="display:inline-block;color:#000066;font-family:Arial;font-size:10pt;font-weight:normal;height:32px;width:432px;">ALUMNO DEL 4to. CUATRIMESTRE, GRUPO C</span>
+                                    <span id="lblAux" style="display:inline-block;color:#000066;font-family:Arial;font-size:10pt;font-weight:normal;height:32px;width:299px;"></span></strong></span></td>
+                        </tr>
+                        <tr style="font-size: 12pt">
+                            <td style="border-style: none; border-color: inherit; border-width: 2; text-align:left" valign="middle" class="style16">
+                                <span style="font-size: 12pt; font-family: Roman"><strong>
+                                    </strong></span></td>
+                        </tr> 
+                        <tr style="font-size: 12pt">
+                            <td style="border-style: none; border-color: inherit; border-width: 2; text-align:left" valign="middle" class="style12">
+                                <strong><span style="color: #006633; font-family: Roman">
+                                    <span id="lblPeriodo" style="display:inline-block;color:#000066;font-family:Arial;font-size:10pt;font-weight:normal;height:32px;width:240px;">SEPTIEMBRE-DICIEMBRE 20243</span>
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; </span></strong></td>                        </tr>  
+                    </tbody></table>                                     
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    
+                    <br>
+                    <br>
+                    
+                </td>
+             </tr><!--Termina Parte del Datos Personales-->   
+              <tr style="background-color: #313131;">
+                <td style="width: 807px">
+                    <table cellpadding="0" cellspacing="0" width="800">
+                        <tbody>
+                            <tr><!---Inicia Pie de Pagina-->
+				                <td style="width:800px" valign="baseline">
+					                <table cellpadding="0" cellspacing="0" width="800">
+						                <tbody><tr><td valign="top" style="width:805px; height:53px">
+                                            
+
+
+	<div id="footer" title="© 2013 - UTHH     PODAI">Carretera Huejutla - Chalahuiyapa  S/N, C.P. 43000, Huejutla de Reyes ,Hidalgo.<br>
+      Teléfonos: 789 8962088 al 91<br>
+      E-mail:&nbsp;<strong>rectoría@uthh.edu.mx</strong><strong>&nbsp;</strong><br>
+    Universidad Tecnológica de la Huasteca Hidalguense</div>
+
+
+                                        </td></tr>
+					                </tbody></table>					
+				                </td>
+			                </tr><!---Termina Pie de Pagina-->
+                        </tbody>
+                    </table>
+                </td>
+             </tr>
+         </tbody>                   
+    </table>  
+         
+      
+
+
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.initialize();
+//]]>
+</script>
+</form> 
+
+ <div id="fin"></div>
+</div>
+
+
+<div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-dialog-buttons ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-describedby="encuesta" aria-labelledby="ui-id-1" style="display: none; position: absolute;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span id="ui-id-1" class="ui-dialog-title">Encuesta</span><button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" aria-disabled="false" title="hide"><span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">hide</span></button></div><div id="encuesta" class="ui-dialog-content ui-widget-content">
+            <div id="contenido">
+               
+            </div>
+        </div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">Guardar</span></button></div></div><div class="ui-resizable-handle ui-resizable-false" style="z-index: 90;"></div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-describedby="alerta" aria-labelledby="ui-id-2" style="display: none; position: absolute;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span id="ui-id-2" class="ui-dialog-title">PODAI</span><button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" aria-disabled="false" title="hide"><span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">hide</span></button></div><div id="alerta" class="ui-dialog-content ui-widget-content">
+            <div id="content">
+               Favor de evaluar
+                <h3>ENCUESTA DE SANA CONVIVENCIA ESCOLAR</h3>
+                <a href="http://encuestas.uthh.edu.mx/" title="Click para ingresar a la encuesta">Ingresar a la encuesta</a>
+            </div>
+        </div><div class="ui-resizable-handle ui-resizable-false" style="z-index: 90;"></div></div></body></html>

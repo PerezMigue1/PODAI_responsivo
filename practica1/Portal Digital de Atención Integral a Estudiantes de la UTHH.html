@@ -1,0 +1,693 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0025)http://podai.uthh.edu.mx/ -->
+<html xmlns="https://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="responsive-portal.css" rel="stylesheet" type="text/css">
+    <title>
+	Portal Digital de Atención Integral a Estudiantes de la UTHH
+</title>
+	
+ 
+<script language="JavaScript">
+
+    function AbrirCentrado(Url, NombreVentana, width, height, extras) 
+    {
+        var largo = width;
+        var altura = height;
+        var adicionales = extras;
+        var top = (screen.height - altura) / 2;
+        var izquierda = (screen.width - largo) / 2; nuevaVentana = window.open('' + Url + '', '' + NombreVentana + '', 'width=' + largo + ',height=' + altura + ',top=' + top + ',left=' + izquierda + ',Directories =' + adicionales + '');
+        nuevaVentana.focus();
+    }
+
+</script>
+	  
+	
+    <script type="text/javascript" language="javascript">
+
+        function handleTimeout() {
+            alert('Tiempo de espera superado. \n Su conexión a internet es demasiado lento.');
+        }
+        function doOnLoad() {
+            AjaxPro.timeoutPeriod = 120*1000;
+            AjaxPro.onTimeout = handleTimeout;
+        }
+    </script>
+    
+    <meta name="DISTRIBUTION" content="GLOBAL"><meta name="COPYRIGHT" content="tutorias.uthh.edu.mx"><meta name="KEYWORDS" content="tsu,informatica,mecanica,agrobiotecnologia,alimentos,contadura,biblioteca,administracion,noticia,foro,huejutla,reyes,huejutla de reyes,hidalgo,mexico,pachuca,tutorias,PODAI,uthh,calificaciones,agenda,virtual,movil"><meta name="DESCRIPTION" content="PODAI, nace para apoyar de manera virtual al estudiante, a través del uso de las tecnologías de la información y comunicación, como medida estratégica al Programa Institucional de Tutorías y coadyuvar en su desempeño académico…"><link rel="stylesheet" type="text/css" href="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/style.css"><link href="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/style(1).css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/jquery.min.js.descarga"></script>
+	
+	<script language="javascript" type="text/javascript" src="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/jquery.min(1).js.descarga"></script>
+ <script language="javascript" type="text/javascript" src="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/jquery-ui.min.js.descarga"></script>
+<link rel="stylesheet" href="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/jquery-ui.css"><link href="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/style(2).css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        #NuevaVersion
+        {
+        	margin-left: 40px;
+        	width:10em;
+	        border-radius: 15px 15px 15px 15px;
+	        -moz-border-radius: 15px 15px 15px 15px;
+	        -o-border-radius: 15px 15px 15px 15px;
+	        -webkit-border-radius: 15px 15px 15px 15px;
+	        animation:parpadeo 5s;
+	        -webkit-animation:parpadeo 5s;
+	        animation-iteration-count:infinite;
+	        -webkit-animation-iteration-count:infinite;
+        }
+        @keyframes parpadeo
+        {
+	        0%{box-shadow: 0px 0px 10px #00883E;}
+	        50%{box-shadow:0px 0px 50px #00883E;}
+	        100%{box-shadow: 0px 0px 10px #00883E}
+        }
+
+        @-webkit-keyframes parpadeo
+        {
+	        0%{-webkit-box-shadow: 0px 0px 10px #00883E;}
+	        50%{-webkit-box-shadow:0px 0px 50px #00883E;}
+	        100%{-webkit-box-shadow: 0px 0px 10px #00883E}
+        }
+
+	.ventana{
+
+	display:none;   
+	font-family:Arial, Helvetica, sans-serif;
+	color:#808080;
+	line-height:28px;
+	font-size:15px;
+	text-align:justify;
+}
+
+#fondo55 { width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 990; opacity: 0.8; background:#000; }
+#flotante { z-index: 999; border: 8px solid #fff; margin-top: -460px; margin-left: -335px; top: 50%; left: 50%; padding: 3px; position: fixed; width: 650px; background-color: #fff; border-radius: 3px; }
+h1,h3 { 	text-align:center; }
+
+    </style>
+	
+	 <script>
+	     function flotante(tipo) {
+	         if ($("#contenedor").length) {
+	             if (tipo == 1) { $('#contenedor').show(); $('#flotante').animate({ marginTop: "-290px" }); }
+	             if (tipo == 2) { $('#flotante').animate({ marginTop: "-900px" }); setTimeout(function() { $('#contenedor').hide(); }, 500) }
+	         }
+	     } 
+    </script>
+    
+    <script type="text/javascript">
+	function abrirmodal() {
+	var fileName = "reinxcripcion2016.pdf";
+   $("#dialogo").dialog({
+			width: 590,  <!-- -------------> ancho de la ventana -->
+			title: "Alerta alumnos",
+			height: 610,<!--  -------------> altura de la ventana -->
+			show: "scale", <!-- -----------> animación de la ventana al aparecer -->
+			hide: "shake", <!-- -----------> animación al cerrar la ventana -->
+			resizable: "false", <!-- ------> fija o redimensionable si ponemos este valor a "true" -->
+			position: "center",<!--  ------> posicion de la ventana en la pantalla (left, top, right...) -->
+			modal: "true", <!-- ------------> si esta en true bloquea el contenido de la web mientras la ventana esta activa (muy elegante) -->
+			open: function () {
+                    var object = "<object data=\"{FileName}\" type=\"application/pdf\" width=\"570px\" height=\"390px\">";
+                    object += "If you are unable to view file, you can download from <a href = \"{FileName}\">here</a>";
+                    object += " or download <a target = \"_blank\" href = \"https://get.adobe.com/reader/\">Adobe PDF Reader</a> to view the file.";
+                    object += "</object>";
+					
+                    object = object.replace(/{FileName}/g, "/Imagenes/" + fileName);
+                    $("#abrix").html(object);
+                }
+   });
+   }
+   
+function add_tema(){        
+	                $("#divcargando").show(0);
+	                $("#formPreguntas").show(500);
+	            
+	              document.getElementById('cboCarrera').focus();
+	              document.getElementById('txtNombre').value = '';
+	              document.getElementById('txtEmail').value = '';
+	              document.getElementById('txtTema').value = '';
+	              document.getElementById('txtMensaje').value = '';
+	              $("#divcargando").hide(0);
+}
+function cancel_tem(){
+	              $("#formPreguntas").hide("slow");	      
+}
+
+function hideDiv(){
+	
+    doOnLoad();
+   hidde1();
+    $('#divEntrar').html("<b></b>");
+    document.getElementById("ifram1").setAttribute('src', 'Default_detalle.aspx?p='+$("#cmbPeriodos").val());
+ 
+}
+function hidde1(){
+    document.getElementById('loadText').style.visibility = "hidden"; document.getElementById('loadText').style.display = "none";
+    document.getElementById('print').style.visibility = "visible"; ;
+}
+    function Encuesta(iden){
+           $('#Encuesta').hide();
+         _Default.Encuesta(iden, EncuestaAjaxMethod_CallBack);
+    }
+    function EncuestaAjaxMethod_CallBack(response){
+        if (response.error!=null) {
+                
+            }else{     
+                
+                $('#Encuesta').html(response.value);
+                $('#Encuesta').show();
+            }
+    }
+     function foroAjaxMethod_CallBack(response){
+        if (response.error!=null) {
+                
+            }else{     
+                $('#divContenido').hide();
+                $('#divContenido').html(response.value);
+                $('#divContenido').show(600);
+                $('#divcargando').hide();
+            }
+    }
+    
+    function EntrarSesion(){
+         $('#divEntrar').text("Verificando...");
+        con=false;
+         if(document.getElementById('cmbSesion').selectedIndex==0){ con=true;
+            document.getElementById('cmbSesion').className ="rojo"}else document.getElementById('cmbSesion').className ="verde";
+         if(document.getElementById('txtUsuario').value==""){
+            con=true;
+            document.getElementById('txtUsuario').className ="rojo"}else document.getElementById('txtUsuario').className ="verde";
+        if(document.getElementById('txtContra').value==""){
+            con=true;
+            document.getElementById('txtContra').className ="rojo"}else document.getElementById('txtContra').className ="verde";
+         if(con==false){
+              _Default.CmdIngresar_Click(document.getElementById('cmbSesion').selectedIndex, $("#txtUsuario").val(), $("#txtContra").val(), $("#cmbPeriodos").val(), MensajeUserAjaxMethod_CallBack)
+            
+            }else
+                $('#divEntrar').text("Verificar datos");
+                
+         return false;
+    }
+    function Validar1(num){
+        
+        $('#Mensaje'+num).text("Enviando");
+         con=false;
+         
+         if(document.getElementById('txtNombre'+num).value==""){ con=true;
+            document.getElementById('txtNombre'+num).className ="rojo";
+         }else document.getElementById('txtNombre'+num).className ="verde";
+         if(document.getElementById('txtRespuesta'+num).value==""){
+            con=true;
+            document.getElementById('txtRespuesta'+num).className ="rojo"}else document.getElementById('txtRespuesta'+num).className ="verde";
+         if(validarEmail(document.getElementById('txtEmail'+num).value)){
+            con=true;
+            document.getElementById('txtEmail'+num).className ="rojo";
+         }else document.getElementById('txtEmail'+num).className ="verde";
+         if(con==false){
+            _Default.GuardaRespuestaAjaxMethod( $("#txtNombre"+num).val(), $("#txtEmail"+num).val(), $("#txtRespuesta"+num).val(), $("#CvForo"+num).val(), GuardaRespuestaAjaxMethod_CallBack);
+           // _Default.respuestas($("#CvForo"+num).val(), MuestraRespuestaAjaxMethod_CallBack);
+             // ================================ Otros ======================================
+                $('#Mensaje'+num).text('Guardado correctamente.');
+                document.getElementById('txtNombre'+num).value="";
+                document.getElementById('txtEmail'+num).value="";
+                document.getElementById('txtRespuesta'+num).value="";
+                alert('Tu mensaje se ha enviado correctamente!\n\nEstará siendo atendido en las próximas horas para poder ser publicada');
+             // ================================ Otros fin ======================================
+            }else
+                $('#Mensaje'+num).text("Verificar datos");
+    }
+    function validarEmail(valor) { 
+         re=/^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,3})$/
+        if(!re.exec(valor))    {
+            return true ;
+        }else{
+            return false;
+        }
+        
+    }
+    function MensajeUserAjaxMethod_CallBack(response){
+        if (response.error!=null) {
+                $('#divEntrar').html("<script> location.href=''; <\/script>");
+            }else{     
+                $('#divEntrar').html(response.value);
+            }
+    }
+    function GuardaRespuestaAjaxMethod_CallBack(response){
+            if (response.error!=null) {
+                alert("Error al conectarse."+response.error); 
+            }else{     
+                
+            }
+            
+    }
+    function MuestraRespuestaAjaxMethod_CallBack0(response){
+             if (response.error!=null) {
+                $('#divForo0').html("<script> location.href=''; <\/script>");
+            }else{     
+                $('#divForo0').hide();
+                $('#divForo0').html(response.value);
+                            
+                $('#divForo0').show(600);
+            }
+            
+    }
+    function MuestraRespuestaAjaxMethod_CallBack1(response){
+            if (response.error!=null) {
+                $('#divForo1').html("<script> location.href=''; <\/script>");
+            }else{     
+                $('#divForo1').hide();
+                $('#divForo1').html(response.value);
+                            
+                $('#divForo1').show(600);
+            }
+            
+    }
+     function MuestraRespuestaAjaxMethod_CallBack2(response){
+            if (response.error!=null) {
+                $('#divForo2').html("<script> location.href=''; <\/script>");
+            }else{     
+                $('#divForo2').hide();
+                $('#divForo2').html(response.value);
+                            
+                $('#divForo2').show(600);
+            }
+            
+    }
+    function MuestraRespuestaAjaxMethod_CallBack3(response){
+            if (response.error!=null) {
+                $('#divForo3').html("<script> location.href=''; <\/script>");
+            }else{     
+                $('#divForo3').hide();
+                $('#divForo3').html(response.value);
+                            
+                $('#divForo3').show(600);
+            }
+            
+    }
+    
+    function contar(form,name, num) {
+      n = document.forms[form][name].value.length;
+      t = 7000;
+      if (n > t) {
+        document.forms[form][name].value = document.forms[form][name].value.substring(0, t);
+      }
+      else {
+        document.forms[form]['result'+num+''].value = t-n;
+      }
+    } 
+    function GuardaPreguntaAjaxMethod_CallBack(response){
+        if (response.error!=null) {
+            alert("Ha ocurrido un error al guardar la información. Inténte mas tarde.\n\nGracias por la comprensión"); 
+        }else{                
+            document.getElementById('txtNombre').focus();
+	        document.getElementById('txtNombre').select();
+	        document.getElementById('txtEmail').value = '';
+	        document.getElementById('txtTema').value = '';
+	        document.getElementById('txtMensaje').value = '';	            
+	        $("#formPreguntas").hide("slow");
+            alert('Tu mensaje se ha enviado correctamente!\n\nEstará siendo atendido en las próximas horas para poder ser publicada');
+        }            
+    }
+    function Validar(){        
+             con=false;
+             if(document.getElementById('cboCarrera').selectedIndex == 0){ 
+                con = true;            
+                document.getElementById('cboCarrera').className = "rojo";
+                document.getElementById('cboCarrera').focus();
+             }
+             else {         
+                document.getElementById('cboCarrera').className = "verde";         
+                document.getElementById('cboCarrera').focus();
+             }
+             if(document.getElementById('txtNombre').value == ""){ 
+                con = true;            
+                document.getElementById('txtNombre').className = "rojo";            
+             }
+             else 
+                document.getElementById('txtNombre').className = "verde";                              
+             if(validarEmail(document.getElementById('txtEmail').value)){
+                con=true;
+                document.getElementById('txtEmail').className = "rojo";
+             }
+             else 
+                document.getElementById('txtEmail').className = "verde";
+             if(document.getElementById('txtTema').value==""){
+                con=true;
+                document.getElementById('txtTema').className = "rojo"
+             }
+             else 
+                document.getElementById('txtTema').className = "verde";
+             if(document.getElementById('txtMensaje').value == ""){
+                con=true;
+                document.getElementById('txtMensaje').className = "rojo"
+             }
+             else 
+                document.getElementById('txtMensaje').className = "verde";         
+             if(con==false){
+                _Default.GuardaPreguntaAjaxMethod($("#txtNombre").val(), $("#txtEmail").val(), $("#txtTema").val(), $("#txtMensaje").val(),$("#cboCarrera").val(), GuardaPreguntaAjaxMethod_CallBack);
+              
+             }
+    }
+    
+    
+     </script>
+     <script language="JavaScript1.2" type="text/javascript">
+<!--
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+function MM_nbGroup(event, grpName) { //v6.0
+var i,img,nbArr,args=MM_nbGroup.arguments;
+  if (event == "init" && args.length > 2) {
+    if ((img = MM_findObj(args[2])) != null && !img.MM_init) {
+      img.MM_init = true; img.MM_up = args[3]; img.MM_dn = img.src;
+      if ((nbArr = document[grpName]) == null) nbArr = document[grpName] = new Array();
+      nbArr[nbArr.length] = img;
+      for (i=4; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+        if (!img.MM_up) img.MM_up = img.src;
+        img.src = img.MM_dn = args[i+1];
+        nbArr[nbArr.length] = img;
+    } }
+  } else if (event == "over") {
+    document.MM_nbOver = nbArr = new Array();
+    for (i=1; i < args.length-1; i+=3) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = (img.MM_dn && args[i+2]) ? args[i+2] : ((args[i+1])?args[i+1] : img.MM_up);
+      nbArr[nbArr.length] = img;
+    }
+  } else if (event == "out" ) {
+    for (i=0; i < document.MM_nbOver.length; i++) { img = document.MM_nbOver[i]; img.src = (img.MM_dn) ? img.MM_dn : img.MM_up; }
+  } else if (event == "down") {
+    nbArr = document[grpName];
+   
+    if (nbArr) for (i=0; i < nbArr.length; i++) { img=nbArr[i]; img.src = img.MM_up; img.MM_dn = 0;   }
+    document[grpName] = nbArr = new Array();
+    for (i=2; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = img.MM_dn = (args[i+1])? args[i+1] : img.MM_up;
+      _Default.menu(args[2],foroAjaxMethod_CallBack);
+      nbArr[nbArr.length] = img;
+  } }
+}
+
+//-->
+</script>
+
+
+	
+	
+	
+
+<script src="chrome-extension://mooikfkahbdckldjjndioackbalphokd/assets/prompt.js"></script></head>
+	
+
+
+	  
+ <!-- javascript:flotante(1)	 <body onLoad="javascript:hideDiv();javascript:AbrirCentrado('Imagenes/AVISO REINSCRIPCIONES 2016.jpg','AVISO PAGO EXTRAORDINARIOS 2016','480','480','no')">
+-->
+            <body onload="javascript:hideDiv();" style="">
+
+      <div id="loadText" style="position: absolute; top: 220px; width: 100%; left: 1px; visibility: hidden; display: none;" align="center">
+          <span style="font-family:Verdana;font-size:10px;font-weight:bold;color:#7E7E7E">PODAI...</span><br>
+            <img src="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/carga.gif" style="border:0">          
+      </div>
+
+<div class="wrapper" id="print" style="visibility: visible;"> 
+<script>  document.getElementById('print').style.visibility = "hidden";</script>
+<form name="form1" method="post" action="http://podai.uthh.edu.mx/default.aspx" id="form1">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTMxMDgxMjQ1Ng9kFgICAw9kFgYCAw8QZA8WAWYWARAFBTIwMjUxBQUyMDI1MWdkZAILDw8WAh4EVGV4dAUHNTQzNTg2OWRkAg0PDxYCHwAFAzM1MmRkZGLQY0JfM6IisIjK4KrkE5/rgTgq">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+
+<script type="text/javascript" src="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/prototype.ashx"></script>
+<script type="text/javascript" src="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/core.ashx"></script>
+<script type="text/javascript" src="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/converter.ashx"></script>
+<script type="text/javascript" src="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/_Default,App_Web_gs1wbkbg.ashx"></script>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWEQLHxZW2DwKHntj4DALk+6f5CAKt9M+QDgKQ2tPOCAKmsfiCDAKOlrXcCgLUiPjKDgKyrIiNDALGpMmgDgLEyve+BgLzl/7xCgLknZ2mBAKJ+eyJCgKwyJbqDgKpwKPFCAKmmun7AmvtqXAvnkIldYlEryc9CA9KbVjM">
+</div>
+				
+<table cellpadding="0" cellspacing="0" border="0" style="width:808px; height:100%" align="center"><!--Empieza Tabla Principal-->		
+		<tbody><!-- inicia TBODY principal-->	 
+		<tr><td>
+<link rel="stylesheet" href="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/font-awesome.min.css">
+<link href="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/style(3).css" rel="stylesheet" type="text/css">  
+<script type="text/javascript">
+cadena = document.URL;
+cadena = cadena.split('/');
+nuevo='';
+for (i=0; i< cadena.length; i++) {
+    if(cadena[i]=='WebSite'){
+        nuevo='/WebSite';
+   
+    }
+}
+</script>
+<script type="text/javascript" language="javascript"><!--Script que devuelva la fecha actual-->
+	function Item()
+	{
+		this.length = Item.arguments.length 
+		for (var i = 0; i < this.length; i++)
+			this[i] = Item.arguments[i]
+	}
+
+	function Fecha() 
+	{
+		var ndia = new Item('Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado')
+		var nmes = new Item('enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre')
+		var ahora
+		var fecha = new Date()
+		var ano = fecha.getYear()
+		var mes = fecha.getMonth()
+		var dia = fecha.getDay()
+		var aux = "" + fecha
+	
+		if (ano<10){ ano2 = "200" + eval(ano) }
+			else 
+				if (ano<80) { ano2 = "20" + ano} 
+					else 
+						if (ano<=99) { ano2 = "19" + ano}
+							else 
+								if (ano<1000) {	 ano2 = eval(ano) + eval(1900)	}
+									else { ano2 = ano 	}
+		ahora = "Hoy es, "+ndia[dia] + ", " + eval(aux.substring(7, 10)) + " de " + nmes[mes] + " de " + ano2
+	return ahora
+	}	
+</script><!-- Termina Script que devuelva la fecha actual-->
+<table border="0" cellpadding="0" cellspacing="0" style="width: 808px">
+    <tbody><tr>
+        <td style="width: 100%; height: 84px;">
+        <img src="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/banner.jpg" width="808px">
+      
+          </td>
+    </tr>
+   
+     <tr> <script>document.write('<td background="'+nuevo+'/imagenes/barra.png" height="27" align="center" valign="middle" style="font-size:9px; font-family:Arial; text-align:right; width: 800px">&nbsp;  <font color="#006600">'+Fecha()+'</font></td>');</script><td background="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/barra.png" height="27" align="center" valign="middle" style="font-size:9px; font-family:Arial; text-align:right; width: 800px">&nbsp;  <font color="#006600">Hoy es, Viernes, 10 de enero de 2025</font></td>
+             
+	    <td style="width: 805px">
+	    </td>
+    </tr>
+</tbody></table>
+</td></tr>       
+		 <tr>
+                <td valign="top" style="height:20px; width:808px; background-color: white;">
+                    <!-- Inicia cuerpo pagina -->
+                    <table style=" width:808px; background-color: white;">
+                    <tbody><tr><td valign="top" style="width:245px">
+                    <div class="divtd">Acceso al sistema</div><br>
+                         <table>
+                                         <tbody><tr>
+                                             <td style="width: 73px; text-align: left; color:#313131; height: 28px; "><strong> Período:</strong></td>
+                                                  <td style="width: 160px; height: 28px; text-align: left; ">
+                                                        <select name="cmbPeriodos" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;cmbPeriodos\&#39;,\&#39;\&#39;)&#39;, 0)" id="cmbPeriodos" style="color:Black;background-color:White;font-family:Arial;font-size:9pt;width:108px;">
+	<option selected="selected" value="20251">20251</option>
+
+</select>
+                                                  </td>
+                                                  <td style="width: 160px; height: 15px; text-align: left; ">&nbsp;
+                                                        </td>
+                                        </tr>
+                                        <tr>
+                                                  <td style="width: 73px; text-align: left; color:#313131; height: 28px;"> <strong>Sesión:</strong>
+                                                  </td>
+                                                  <td style="width: 160px; height: 28px; text-align: left; background :white">
+                                                                <select name="cmbSesion" id="cmbSesion" style="color:Black;font-family:Arial;font-size:9pt;width:108px;">
+	<option selected="selected" value="[Elija un tipo]">[Elija un tipo]</option>
+	<option value="Alumno">Alumno</option>
+	<option value="Tutor">Tutor</option>
+	<option value="Docente">Docente</option>
+	<option value="Docente IE">Docente IE</option>
+	<option value="Director">Director</option>
+	<option value="Administrador">Administrador</option>
+	<option value="Coordinación de ingles">Coordinación de ingles</option>
+	<option value="Vinculación">Vinculación</option>
+	<option value="Rector">Rector</option>
+	<option value="Servicios Escolares">Servicios Escolares</option>
+	<option value="Dirección académica">Dirección académica</option>
+
+</select>
+                                                   </td>
+                                                  <td style="width: 160px; height: 15px; text-align: left; background :white">&nbsp;
+                                                                </td>
+                                             </tr>                                       
+                                             <tr style="background :white">
+                                                   <td style="width: 73px; text-align: left; color:#313131; height: 15px;  background:white"> <strong>Usuario:</strong>
+                                                   </td>
+                                                   <td style="width: 160px; height: 28px; text-align: left;  background:white">
+                                                            <input name="txtUsuario" type="text" maxlength="15" id="txtUsuario" placeholder=" Matrícula" style="color:Black;background-color:White;font-family:Arial;font-size:9pt;font-weight:bold;width:100px;">
+                                                   </td>
+                                                   <td style="width: 160px; height: 28px; text-align: left;  background:white">&nbsp;
+                                                            </td>
+                                             </tr>
+                                             <tr style="font-weight: bold; color: #000000; background :white; ">
+                                                   <td style="width: 73px; text-align: left; color:#313131; height: 20px;  background:white"> Contraseña:
+                                                   </td>
+                                                   <td style="width: 160px; text-align: left; height: 28px;  background:white">
+                                                            <input name="txtContra" type="password" maxlength="15" id="txtContra" style="color:Black;background-color:White;font-family:Arial;font-size:9pt;font-weight:bold;width:100px;">
+                                                        </td>
+                                                   <td style="width: 160px; text-align: left; height: 28px;  background:white">&nbsp;
+                                                        </td>
+                                             </tr><tr><td style="height:28px;" colspan="3">
+                                             <font color="red"></font>
+
+                                             <div style="color: #FF0000; text-align:center" id="divEntrar"><b></b></div>
+                                             <br><center><input name="" type="submit" onclick="return EntrarSesion()" style="width:100px; Height:25px;" value="Entrar"></center>
+                                             <br><center><a href="http://podai.uthh.edu.mx/BuscarUsuario.aspx">¿Olvidaste tu contraseña?</a></center><br><br>
+                                            
+                                             </td></tr>
+                                             
+                                      </tbody></table>
+									
+	
+ <div class="divtd">Eres el visitante número:</div>
+                        <br>
+                        <center><span id="lblContador" style="color:#313131;font-family:Arial;font-size:25pt;font-weight:bold;">5435869</span></center>
+                           <br><br>
+<font color="#313131" size="2">
+Contador inicializado el  08/09/2011<br></font>
+                           <br>
+                        <div class="divtd">Usuarios conectados:</div>
+                           <br>
+                        <center><span id="lblContador2" style="color:#313131;font-family:Arial;font-size:25pt;font-weight:bold;">352</span></center>
+                           <br>
+                        
+                           <br>
+                        <span id="lblContador3" style="color:#313131;font-family:Arial;font-size:25pt;font-weight:bold;"></span>
+                    
+                        </td><td valign="top" style="width:100%">
+                        <!-- inicio menu -->
+  <table border="0" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <td><a href="javascript:;" onmouseout="MM_nbGroup(&#39;out&#39;);" onmouseover="MM_nbGroup(&#39;over&#39;,&#39;index_r7_c4&#39;,&#39;Imagenes/index_r7_c4_s2.png&#39;,&#39;Imagenes/index_r7_c4_s3.png&#39;,1);" onclick="MM_nbGroup(&#39;down&#39;,&#39;navbar1&#39;,&#39;index_r7_c4&#39;,&#39;Imagenes/index_r7_c4_s3.png&#39;,1);"><img border="0" name="index_r7_c4" src="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/index_r7_c4.png" width="115" height="32" alt=""></a></td>
+   <td><img name="index_r7_c5" src="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/index_r7_c5.png" width="2" alt=""></td>
+   <td><a href="javascript:;" onmouseout="MM_nbGroup(&#39;out&#39;);" onmouseover="MM_nbGroup(&#39;over&#39;,&#39;index_r7_c6&#39;,&#39;Imagenes/index_r7_c6_s2.png&#39;,&#39;Imagenes/index_r7_c6_s3.png&#39;,1);" onclick="MM_nbGroup(&#39;down&#39;,&#39;navbar1&#39;,&#39;index_r7_c6&#39;,&#39;Imagenes/index_r7_c6_s3.png&#39;,1);"><img border="0" name="index_r7_c6" src="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/index_r7_c6.png" width="115" height="32" alt=""></a></td>
+   <td><img name="index_r7_c7" src="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/index_r7_c7.png" width="2" alt=""></td>
+   <td colspan="2"><a href="javascript:;" onmouseout="MM_nbGroup(&#39;out&#39;);" onmouseover="MM_nbGroup(&#39;over&#39;,&#39;index_r7_c8&#39;,&#39;Imagenes/index_r7_c8_s2.png&#39;,&#39;Imagenes/index_r7_c8_s3.png&#39;,1);" onclick="MM_nbGroup(&#39;down&#39;,&#39;navbar1&#39;,&#39;index_r7_c8&#39;,&#39;Imagenes/index_r7_c8_s3.png&#39;,1);"><img border="0" name="index_r7_c8" src="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/index_r7_c8.png" width="115" height="32" alt=""></a></td>
+   <td><a href="javascript:;" onmouseout="MM_nbGroup(&#39;out&#39;);" onmouseover="MM_nbGroup(&#39;over&#39;,&#39;index_r7_c10&#39;,&#39;Imagenes/index_r7_c10_s2.png&#39;,&#39;Imagenes/index_r7_c10_s3.png&#39;,1);" onclick="MM_nbGroup(&#39;down&#39;,&#39;navbar1&#39;,&#39;index_r7_c10&#39;,&#39;Imagenes/index_r7_c10_s3.png&#39;,1);"><img border="0" name="index_r7_c10" src="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/index_r7_c10.png" width="115" height="32" alt=""></a></td>
+   <td colspan="2"><a href="javascript:;" onmouseout="MM_nbGroup(&#39;out&#39;);" onmouseover="MM_nbGroup(&#39;over&#39;,&#39;index_r7_c11&#39;,&#39;Imagenes/index_r7_c11_s2.png&#39;,&#39;Imagenes/index_r7_c11_s3.png&#39;,1);" onclick="MM_nbGroup(&#39;down&#39;,&#39;navbar1&#39;,&#39;index_r7_c11&#39;,&#39;Imagenes/index_r7_c11_s3.png&#39;,1);"><img border="0" name="index_r7_c11" src="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/index_r7_c11.png" width="115" height="32" alt=""></a></td>
+   
+   
+  </tr>
+  </tbody></table>
+  
+  <!--   Fin menu -->
+                                  
+                    <br>
+                    <div id="divcargando" style="visibility:hidden;"><center><img src="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/carga.gif"></center> </div>
+                                <div id="divContenido"> 
+                                  <!--- Inicio galeria -->
+                    <table align="center"> <tbody><tr>
+
+   <td rowspan="2" valign="top"><br><a href="javascript:;" onmouseover="MM_swapImage(&#39;g_r1_c2&#39;,&#39;&#39;,&#39;Imagenes/02.jpg&#39;,1);"><img name="g_r3_c1" src="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/g_r3_c1.png" width="80" height="36" id="g_r3_c1" alt=""></a><br><a href="javascript:;" onmouseover="MM_swapImage(&#39;g_r1_c2&#39;,&#39;&#39;,&#39;Imagenes/04.jpg&#39;,1);"><img name="g_r3_c6" src="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/g_r3_c6.png" width="80" height="36" id="g_r3_c6" alt=""></a><br>
+   </td>
+   
+   <td rowspan="2"><img name="g_r1_c2" src="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/04.jpg" width="480" id="g_r1_c2" alt=""></td>
+   
+   <td valign="top"><a href="javascript:;" onmouseover="MM_swapImage(&#39;g_r1_c2&#39;,&#39;&#39;,&#39;Imagenes/02.jpg&#39;,1);"><br></a>
+       <a href="javascript:;" onmouseover="MM_swapImage(&#39;g_r1_c2&#39;,&#39;&#39;,&#39;Imagenes/03.jpg&#39;,1);"><br></a></td>
+   
+  </tr>
+  
+                                    </tbody></table>
+  <!-- Fin galeria -->
+  </div><br>
+  <b>Aviso:</b> A los <b style=" color:#8C0000 "> docentes de Ingles</b>, para iniciar sesión por niveles seleccione el tipo de sesión <b>Docente IE</b>, para más información comuníquese al área de redes.
+    
+  
+<iframe id="ifram1" frameborder="0" src="./Portal Digital de Atención Integral a Estudiantes de la UTHH_files/Default_detalle.html" width="100%" height="650px"></iframe>  
+                                    </td></tr>
+                    <tr><td>
+                    
+                    
+                    
+                        </td><td>
+                    
+                    </td></tr>
+                    </tbody></table>
+                    <!-- Fin cuerpo pagina -->
+                </td>
+         </tr> 
+         <tr>
+         <td> 
+
+
+	<div id="footer" title="© 2013 - UTHH     PODAI">Carretera Huejutla - Chalahuiyapa  S/N, C.P. 43000, Huejutla de Reyes ,Hidalgo.<br>
+      Teléfonos: 789 8962088 al 91<br>
+      E-mail:&nbsp;<strong>rectoría@uthh.edu.mx</strong><strong>&nbsp;</strong><br>
+    Universidad Tecnológica de la Huasteca Hidalguense</div>
+
+</td></tr>
+</tbody></table><!--Termina Tabla Principal-->
+
+
+<script>abrirmodal()</script></form>
+
+<div id="fin"></div> 
+</div> 
+
+
+<div id="contenedor" style="display:none"><div id="flotante"><h1>PODAI Notificaciones</h1> <div id="portapdf"> 
+
+              
+                </div> <h3><a onclick="flotante(2)" href="http://podai.uthh.edu.mx/#">Cerrar ventana</a></h3> </div> <div id="fondo55" onclick="flotante(2)"></div> </div>
+                
+
+
+
+
+</body></html>

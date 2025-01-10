@@ -1,0 +1,204 @@
+/*Aplicable el acordeon y las categorias */
+ul#acordeon, ul#acordeon ul {
+  list-style-type:none;
+  margin: 0;
+  padding: 0;
+  width: 31em;
+}
+/*Estilo para el hipervinculo de las categorias*/
+ul#acordeon a {
+  display: block;
+  text-decoration: none;
+}
+/*Estilo para el contenedor de las categorias*/
+ul#acordeon li {
+  margin-top: 1px;
+  display: block;
+  text-decoration: none;
+}
+/*Estilo para las categorias*/
+ul#acordeon li a {
+  background: #1C5E55;
+  color: #fff;	
+  padding: 0.5em;
+  -moz-border-radius: 5px; /* Firefox*/
+  -ms-border-radius: 5px; /* IE 8.*/
+  -webkit-border-radius: 5px; /* Safari,Chrome.*/
+   border-radius: 5px; /* El estándar.*/
+   height:10px;
+}
+
+/*Cuando el puntero este sobre una categoria*/
+ul#acordeon li a:hover {
+  background:#099;
+}
+/*Estilo para los items*/
+ul#acordeon li ul li a {
+  background: #E3EAEB;
+  color: #000;
+  padding-left: 5px;
+  height:10px;
+}
+ul#acordeon li ul li a:hover {
+  background:#9C0;
+  border-left: 5px #1C5E55 solid;
+  padding-left: 5px;
+    height:10px;
+}
+
+ul#acordeon span#fecha{
+	color:#CCC;
+}
+/*-----------------------------> TEMA PARA DETALLES      <-------------------------------*/
+
+#detalles{
+	background-color:#E3EAEB;
+	width:165px;
+	border:1px solid #999;
+	overflow:hidden;
+	clear:both;
+	float:right;
+	font-family:Arial, Tahoma;
+	font-size:11px;
+	/*left:810px;
+	top:100px;*/
+	-moz-border-radius: 5px; /* Firefox*/
+  	-ms-border-radius: 5px; /* IE 8.*/
+  	-webkit-border-radius: 5px; /* Safari,Chrome.*/
+   	border-radius: 5px; /* El estándar.*/
+	padding:2px;
+	padding-left:3px;
+	padding-right:3px;
+}
+
+#detalles div{
+	/*width:150px;*/
+	padding-bottom:3px;
+	padding-left:2px;
+	padding-right:2px;
+	text-align:left;
+	text-indent:inherit;
+}
+#detalles div p{
+	text-align:center;
+	text-decoration:blink;
+	background-color:#1C5E55;
+	color:#FFF;
+	padding-left:3px;
+	padding-right:3px;
+	-moz-border-radius: 2px; /* Firefox*/
+  	-ms-border-radius: 2px; /* IE 8.*/
+  	-webkit-border-radius: 2px; /* Safari,Chrome.*/
+   	border-radius: 2px; /* El estándar.*/
+}
+
+#detalles a{
+	background-color:#06C;
+	color:#FFF;
+	text-decoration:none;
+	-moz-border-radius: 5px; /* Firefox*/
+  	-ms-border-radius: 5px; /* IE 8.*/
+  	-webkit-border-radius: 5px; /* Safari,Chrome.*/
+   	border-radius: 5px; /* El estándar.*/
+	padding:2px;
+	padding-left:10px;
+	padding-right:10px;
+}
+#detalles a:hover{
+	background-color:#666;
+	
+}
+/*-----------------------------> TEMA PARA EL CALENDARIO <-------------------------------*/
+#Agenda td{
+		text-align:center;
+		height:25px;
+}
+.Dias td, td#Anio,.arrow,#f_semana td{
+	-moz-border-radius: 2px; /* Firefox*/
+  	-ms-border-radius: 2px; /* IE 8.*/
+  	-webkit-border-radius: 2px; /* Safari,Chrome.*/
+   	border-radius: 2px; /* El estándar.*/
+}
+.Dias{
+	/*float:left;
+	display:inline;*/
+	font-family: Tahoma, Arial;
+	text-align:center;
+	/*padding:5px;
+	padding-left:3px;
+	padding-right:3px;
+	margin-right:1px;
+	margin-bottom:1px;	
+	list-style-type:none;*/
+	background-color:#ededed;
+	color: #999999;
+	/*width:20px;*/
+}
+#Anio{
+	width:182px;
+	font-size:13px;
+	font-weight:bold;
+	color:#CCC;
+	background-color:#1c5e55;
+	border:0px;
+	padding:2px;
+}
+
+.arrow{
+	font-size:10px;
+	font-weight:bold;
+	color: #999999;
+	background-color:#CCC;
+	width:30px;
+}
+
+#mes{
+	background-color:#1c5e55;
+	color:#CCC;
+	width:118px;
+	height:14px;
+}
+
+#f_semana td{
+	font-size:10px;
+	background-color:#1c5e55;
+	color:#CCC;
+	width:20px;
+}
+
+.hoy{
+	background-color: #999;
+	color: #EDEDED;
+	-moz-border-radius: 6px; /* Firefox*/
+  	-ms-border-radius: 6px; /* IE 8.*/
+  	-webkit-border-radius: 6px; /* Safari,Chrome.*/
+   	border-radius: 6px; /* El estándar.*/
+}
+
+.arrow:hover{
+	background-color:#9C3;
+	text-decoration:underline;
+}
+.fecha{
+	text-decoration:underline blink;
+	color:#0C6;
+}
+
+#CalendarioColores{
+	text-align:left;
+	left: 0px;
+	-webkit-margin-before: 0;
+	-webkit-margin-after: 0;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	-webkit-padding-start: 0px;
+	padding-left: 0px;
+}
+
+#CalendarioColores li{
+	text-align:left;
+	display: block;
+	border-style:solid;
+	border-width: 0px 0px 0px 5px;
+	margin: 4px 0px 0px 6px;
+}

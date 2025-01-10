@@ -1,0 +1,68 @@
+﻿function mostrarEncuesta() {
+    $.ajax({
+        type: "POST",
+        url: "Alumnos/EncuestaAlumno.aspx",
+        data: '',
+        dataType: "html",
+        success: function(response) {
+            $("#contenido").html(response);
+        },
+        failure: function(response) {
+            alert(response);
+        }
+    });
+}
+
+function enviarEncuesta(e) {
+    var params = ""
+    var isError = false;
+
+    var campos = $("#frmEncuesta input");
+    $.each(campos, function(index, field) {
+        //params += field.name + "_" + field.value + "&"
+        if (field.type == "radio") {
+            if (!$("input[name=" + field.name + "]").is(":checked")) {
+                alert("Favor de responder todas las preguntas");
+                isError = true;
+                return false;
+            }
+        }
+    });
+    if (!isError) {
+        var objHide = $("#frmEncuesta input[type=hidden]");
+        $.each(objHide, function(index, field) {
+            params += field.name + "=" + field.value + "&"
+
+        });
+        //se crea la variable para los parametros JSON
+        var data = "{parametro1:'" + params + "',"
+
+        params = ""; //se inicializa
+        var objs = $("#frmEncuesta").serializeArray(); //se obtiene los campos seleccionador por el usuario
+        $.each(objs, function(index, field) {
+            params += field.name + "_" + field.value + "&"
+
+        });
+
+        data += "parametro2:'" + params + "'}"; //se agrega el segundo parametro 
+        // alert(data)
+        $.ajax({
+            type: "POST",
+            url: "Bienvenida.aspx/GuardarEncuesta",
+            data: data,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(response) {
+                if (response.d == 0) {
+                    alert("Gracias por su  participación");
+                    $("#encuesta").dialog("close")
+                } else {
+                    mostrarEncuesta();
+                }
+            },
+            failure: function(response) {
+                alert(response.d);
+            }
+        });
+    }
+}
